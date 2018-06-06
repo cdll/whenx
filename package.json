@@ -1,0 +1,27 @@
+{
+  "name": "whenx",
+  "version": "0.1.0",
+  "description": "make weapp methods promisify",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdll/whenx.git"
+  },
+  "keywords": [
+    "wx",
+    "whenx",
+    "thenx",
+    "weapp",
+    "promise",
+    "thenable"
+  ],
+  "author": "cdll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cdll/whenx/issues"
+  },
+  "homepage": "https://github.com/cdll/whenx#readme"
+}
