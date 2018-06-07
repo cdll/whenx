@@ -2,7 +2,7 @@
 make weapp methods promisify
 
 ## Usage ##
-As usual we call weapp methods by ``wx[funcName]`` with an object params like 
+As usual we call weapp methods by ``wx[method]`` with an object params like 
 ````javascript
 wx.login({
   ...
@@ -11,9 +11,9 @@ wx.login({
   ,complete(){}
 })
 ````
-Now within ``whenx`` we can just call ``wx[funcName]`` easily and got an thenable response like 
+Now within ``whenx`` we can just call ``wx[method]`` easily and got a thenable response like 
 ````javascript
-import * as whenx from 'path/to/whenx'
+const whenx= require('path/to/whenx')
 whenx.login({
   ...
 })
@@ -29,7 +29,7 @@ And also like wepy/mpvue or any other libs that we dont change ``complete`` meth
 ### DEMO ###
 ````javascript
 //service.js
-import * as whenx from './whenx'
+const whenx= require('./whenx')
 
 const service= {
   http: (opts)=> whenx.request(opts)
@@ -72,6 +72,8 @@ const service= {
       })
     })
 }
+
+module.exports= service
 ````
 
 If u have any problems or ideas, just tell me by [issues](https://github.com/cdll/whenx/issues/new)
