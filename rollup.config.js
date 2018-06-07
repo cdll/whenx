@@ -2,6 +2,7 @@
 const resolve= require('rollup-plugin-node-resolve')
 const commonjs= require('rollup-plugin-commonjs')
 const json= require('rollup-plugin-json')
+const minify= require('rollup-plugin-babel-minify')
 const pkg= require('./package.json')
 
 const banner = `/*
@@ -10,27 +11,43 @@ const banner = `/*
 	Released under the MIT License.
 */`
 
-module.exports= {
+module.exports= [{
   input: 'src/main.js'
   ,output: [
     {
-      file: 'dist/whenx.js'
-      , format: 'cjs'
-      , sourcemap: true
-      ,...banner
-    }
-    ,{
-      file: 'dist/whenx.min.js'
-      , format: 'cjs'
-      , sourcemap: true
-      ,...banner
+      file: 'whenx.js'
+      , format: 'iife'
+      , sourcemap: false
+      ,banner: banner
+      ,strict: false
+      ,freeze: false
     }
   ]
   ,plugins: [
     json()
-    ,resolve({browser: true})
-    ,commonjs({
-
+    ,resolve({})
+    ,commonjs({})
+  ] 
+}, {
+  input: 'src/main.js'
+  ,output: [
+    {
+      file: 'whenx.min.js'
+      , format: 'iife'
+      , sourcemap: true
+      ,indent: false
+      ,banner: banner
+      ,strict: false
+      ,freeze: false
+      ,silent: true
+    }
+  ]
+  ,plugins: [
+    json()
+    ,resolve({})
+    ,commonjs({})
+    ,minify({
+      comments: false
     })
   ] 
-}
+}]

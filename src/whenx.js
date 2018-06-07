@@ -1,8 +1,5 @@
 
 const thenx= require('./whenx')
-if(global&& global.wx== undefined){
-  global.wx= {}
-}
 
 const whenx= function(){
   let _wx= {}
