@@ -26,7 +26,7 @@ whenx.login({
 
 And also like wepy/mpvue or any other libs that we dont change ``complete`` method into ``Promise.finally`` also cause the Promise inside weapp doesnot support, while we are also considering make some polyfill to do with it. 
 
-###DEMO
+### DEMO ###
 ````javascript
 //service.js
 import * as whenx from './whenx'
