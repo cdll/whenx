@@ -6,8 +6,12 @@ As usual we call weapp methods by ``wx[method]`` with an object params like
 ````javascript
 wx.login({
   ...
-  ,success(){}
-  ,fail(){}
+  ,success(result){
+    //todo with result
+  }
+  ,fail(error){
+    //todo with error
+  }
   ,complete(){}
 })
 ````
@@ -16,10 +20,11 @@ Now within ``whenx`` we can just call ``wx[method]`` easily and got a thenable r
 const whenx= require('path/to/whenx')
 whenx.login({
   ...
+  ,complete(){}
 })
 .then(result=>{
   //todo with result
-}, err=>{
+}, error=>{
   //todo with error
 })
 ````
@@ -29,7 +34,7 @@ And also like wepy/mpvue or any other libs that we dont change ``complete`` meth
 ### DEMO ###
 ````javascript
 //service.js
-const whenx= require('./whenx')
+const whenx= require('path/to/whenx')
 
 const service= {
   http: (opts)=> whenx.request(opts)
@@ -74,6 +79,21 @@ const service= {
 }
 
 module.exports= service
+
+//pages/page/page.js
+const service= require('path/to/service')
+
+Page({
+  data: {}
+  onLoad(){
+    return service.login()
+    .then(res=>{
+      //ue logic with res
+    }, err=>{
+      //ue logic with err
+    })
+  }
+})
 ````
 
 If u have any problems or ideas, just tell me by [issues](https://github.com/cdll/whenx/issues/new)
