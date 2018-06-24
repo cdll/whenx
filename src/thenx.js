@@ -8,8 +8,8 @@ const thenx= (name, opts= {})=>{
       ,complete: opts.complete
     }) )
     if(name== 'uploadFile'&& opts.progress){
-      let task= method
       if(typeof opts.progress== "function"){
+        let task= method
         Function.call(opts.progress, task)
       }
       else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`)
