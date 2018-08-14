@@ -17,4 +17,4 @@ main.version= version
  * @member {function} whenx
  * @member {function} thenx
  */
-module.exports= main
+export default main

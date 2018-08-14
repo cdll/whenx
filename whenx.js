@@ -3,7 +3,9 @@
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
-(function () {
+var whenx = (function () {
+  'use strict';
+
   var version = "0.2.0";
 
   const whenx= function(){
@@ -38,8 +40,8 @@
         ,complete: opts.complete
       }) );
       if(name== 'uploadFile'&& opts.progress){
-        let task= method;
         if(typeof opts.progress== "function"){
+          let task= method;
           Function.call(opts.progress, task);
         }
         else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
@@ -67,13 +69,6 @@
   main$1.thenx= thenx$1;
   main$1.version= version;
 
-  /**
-   * @desc
-   * @module Object
-   * @return {object}
-   * @member {function} whenx
-   * @member {function} thenx
-   */
-  module.exports= main$1;
+  return main$1;
 
 }());

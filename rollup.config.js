@@ -19,8 +19,9 @@ module.exports= [{
       , format: 'iife'
       , sourcemap: false
       ,banner: banner
-      ,strict: false
+      ,strict: true
       ,freeze: false
+      ,name: 'whenx'
     }
   ]
   ,plugins: [
@@ -40,6 +41,7 @@ module.exports= [{
       ,strict: false
       ,freeze: false
       ,silent: true
+      ,name: 'whenx'
     }
   ]
   ,plugins: [
