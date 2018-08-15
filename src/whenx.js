@@ -1,5 +1,5 @@
 
-const thenx= require('./whenx')
+const thenx= require('./thenx')
 
 const whenx= function(){
   let _wx= {}
