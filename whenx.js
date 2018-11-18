@@ -1,27 +1,33 @@
 /*
-	whenx v1.1.3
+	whenx v1.1.4
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
 var whenx = (function () {
   'use strict';
 
-  var version = "1.1.3";
+  var version = "1.1.4";
 
   var thenx= (name, opts= {})=>{
     // console.info(`func: ${name}`)
     return new Promise((resolve, reject)=>{
-      var method= wx[name]( Object.assign(opts, {
-        success: res=> resolve(res)
-        ,fail: err=> reject(err)
-        ,complete: opts.complete
-      }) );
-      if(opts.progress){
-        if(typeof opts.progress== "function"){
-          var task= method;
-          Function.call(opts.progress, task);
+      try{
+        var method= wx[name]( Object.assign(opts, {
+          success: res=> resolve(res)
+          ,fail: err=> reject(err)
+          ,complete: opts.complete
+        }) );
+        if(opts.progress){
+          if(typeof opts.progress== "function"){
+            var task= method;
+            Function.call(opts.progress, task);
+          }
+          else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
         }
-        else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
+      }
+      catch(err){
+        // debugger
+        return wx[name]
       }
     })
   };
