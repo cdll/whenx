@@ -1,10 +1,9 @@
 
 var thenx= require('./thenx')
 
-var whenx= function(){
-  var _wx= {}
-  for(var k in wx){
-    if(typeof wx[k] === 'function'){
+var whenx= function(_wx= {}){
+  for(let k in wx){
+    if(typeof(wx[k]) === 'function'){
       // console.info(`func: ${k}`)
       _wx[k]= (v)=> thenx.call(this, k, v)
     }
@@ -19,6 +18,6 @@ var whenx= function(){
 /**
  * @desc
  * @module Object
- * @return {bject}
+ * @return {object}
  */
 module.exports= whenx

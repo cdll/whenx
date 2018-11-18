@@ -1,33 +1,26 @@
 /*
-	whenx v1.1.4
+	whenx v1.1.5
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
 var whenx = (function () {
   'use strict';
 
-  var version = "1.1.4";
+  var version = "1.1.5";
 
   var thenx= (name, opts= {})=>{
-    // console.info(`func: ${name}`)
     return new Promise((resolve, reject)=>{
-      try{
-        var method= wx[name]( Object.assign(opts, {
-          success: res=> resolve(res)
-          ,fail: err=> reject(err)
-          ,complete: opts.complete
-        }) );
-        if(opts.progress){
-          if(typeof opts.progress== "function"){
-            var task= method;
-            Function.call(opts.progress, task);
-          }
-          else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
+      var method= wx[name]( Object.assign(opts, {
+        success: res=> resolve(res)
+        ,fail: err=> reject(err)
+        ,complete: opts.complete
+      }) );
+      if(opts.progress){
+        if(typeof opts.progress== "function"){
+          var task= method;
+          Function.call(opts.progress, task);
         }
-      }
-      catch(err){
-        // debugger
-        return wx[name]
+        else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
       }
     })
   };
@@ -46,10 +39,9 @@ var whenx = (function () {
     __moduleExports: thenx_1
   });
 
-  var whenx= function(){
-    var _wx= {};
-    for(var k in wx){
-      if(typeof wx[k] === 'function'){
+  var whenx= function(_wx= {}){
+    for(let k in wx){
+      if(typeof(wx[k]) === 'function'){
         // console.info(`func: ${k}`)
         _wx[k]= (v)=> thenx_1.call(this, k, v);
       }
@@ -64,7 +56,7 @@ var whenx = (function () {
   /**
    * @desc
    * @module Object
-   * @return {bject}
+   * @return {object}
    */
   var whenx_1= whenx;
 
