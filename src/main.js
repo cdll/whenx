@@ -1,14 +1,16 @@
 
-import {version} from '../package.json'
+import {
+  version
+} from '../package.json'
 
 import * as whenx from './whenx'
 import * as thenx from './thenx'
 
-let main= whenx
+var main= whenx
 // console.info(main)
 main.whenx= whenx
 main.thenx= thenx
-main.version= version
+main._version_= version
 
 /**
  * @desc

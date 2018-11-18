@@ -1,24 +1,24 @@
 /*
-	whenx v0.2.0
+	whenx v1.1.3
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
 var whenx = (function () {
   'use strict';
 
-  var version = "0.2.0";
+  var version = "1.1.3";
 
-  const thenx= (name, opts= {})=>{
+  var thenx= (name, opts= {})=>{
     // console.info(`func: ${name}`)
     return new Promise((resolve, reject)=>{
-      const method= wx[name]( Object.assign(opts, {
+      var method= wx[name]( Object.assign(opts, {
         success: res=> resolve(res)
         ,fail: err=> reject(err)
         ,complete: opts.complete
       }) );
       if(opts.progress){
         if(typeof opts.progress== "function"){
-          let task= method;
+          var task= method;
           Function.call(opts.progress, task);
         }
         else console.warn(`[whenx]progress must be a function to call with task but not: ${typeof(opts.progress)}`);
@@ -40,12 +40,16 @@ var whenx = (function () {
     __moduleExports: thenx_1
   });
 
-  const whenx= function(){
-    let _wx= {};
-    for(let k in wx){
+  var whenx= function(){
+    var _wx= {};
+    for(var k in wx){
       if(typeof wx[k] === 'function'){
         // console.info(`func: ${k}`)
         _wx[k]= (v)=> thenx_1.call(this, k, v);
+      }
+      else{
+        // console.info(`val: ${k}`)
+        _wx[k]= wx[k];
       }
     }
     return _wx
@@ -63,11 +67,11 @@ var whenx = (function () {
     __moduleExports: whenx_1
   });
 
-  let main$1= whenx$1;
+  var main$1= whenx$1;
   // console.info(main)
   main$1.whenx= whenx$1;
   main$1.thenx= thenx$1;
-  main$1.version= version;
+  main$1._version_= version;
 
   return main$1;
 
