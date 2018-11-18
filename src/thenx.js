@@ -7,7 +7,7 @@ const thenx= (name, opts= {})=>{
       ,fail: err=> reject(err)
       ,complete: opts.complete
     }) )
-    if(name== 'uploadFile'&& opts.progress){
+    if(opts.progress){
       if(typeof opts.progress== "function"){
         let task= method
         Function.call(opts.progress, task)

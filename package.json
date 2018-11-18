@@ -1,6 +1,6 @@
 {
   "name": "whenx",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "make weapp methods promisify",
   "main": "src/main.js",
   "scripts": {
