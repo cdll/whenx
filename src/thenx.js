@@ -6,6 +6,7 @@ var thenx= (name, opts= {})=>{
       ,fail: err=> reject(err)
       ,complete: opts.complete
     }) )
+    //hook: add progress function hook for native returned task support
     if(opts.progress){
       if(typeof opts.progress== "function"){
         var task= method
