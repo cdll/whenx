@@ -1,12 +1,12 @@
 /*
-	whenx v1.1.5
+	whenx v1.1.6
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
 var whenx = (function () {
   'use strict';
 
-  var version = "1.1.5";
+  var version = "1.1.6";
 
   var thenx= (name, opts= {})=>{
     return new Promise((resolve, reject)=>{
@@ -15,6 +15,7 @@ var whenx = (function () {
         ,fail: err=> reject(err)
         ,complete: opts.complete
       }) );
+      //hook: add progress function hook for native returned task support
       if(opts.progress){
         if(typeof opts.progress== "function"){
           var task= method;
