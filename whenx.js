@@ -1,12 +1,12 @@
 /*
-	whenx v1.1.6
+	whenx v1.1.7
 	https://github.com/cdll/whenx
 	Released under the MIT License.
 */
 var whenx = (function () {
   'use strict';
 
-  var version = "1.1.6";
+  var version = "1.1.7";
 
   var thenx= (name, opts= {})=>{
     return new Promise((resolve, reject)=>{
