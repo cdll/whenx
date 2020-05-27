@@ -1,10 +1,10 @@
 <center>
 
-[![](https://img.shields.io/npm/v/whenx.svg)](https://www.npmjs.com/package/whenx)
-[![install size](https://img.shields.io/npm/l/whenx.svg)](https://github.com/cdll/whenx/blob/master/LICENSE)
-[![](https://img.shields.io/npm/dm/whenx.svg)](https://github.com/cdll/whenx)
+[![npm package](https://img.shields.io/npm/v/whenx.svg)](https://www.npmjs.com/package/whenx)
+[![LICENSE](https://img.shields.io/npm/l/whenx.svg)](https://github.com/cdll/whenx/blob/master/LICENSE)
+[![monthly downloads](https://img.shields.io/npm/dm/whenx.svg)](https://github.com/cdll/whenx)
 [![install size](https://packagephobia.now.sh/badge?p=whenx)](https://packagephobia.now.sh/result?p=whenx)
-[![](https://img.badgesize.io/https://unpkg.com/whenx/whenx.min.js?compression=gzip&?maxAge=3600)](https://unpkg.com/whenx@latest)
+[![gzip size](https://img.badgesize.io/https://unpkg.com/whenx/whenx.min.js?compression=gzip&?maxAge=3600)](https://unpkg.com/whenx@latest)
 
 </center>
 
