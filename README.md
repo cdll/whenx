@@ -1,8 +1,18 @@
+<center>
+
+[![](https://img.shields.io/npm/v/whenx.svg)](https://www.npmjs.com/package/whenx)
+[![install size](https://img.shields.io/npm/l/whenx.svg)](https://github.com/cdll/whenx/blob/master/LICENSE)
+[![](https://img.shields.io/npm/dm/whenx.svg)](https://github.com/cdll/whenx)
+[![install size](https://packagephobia.now.sh/badge?p=whenx)](https://packagephobia.now.sh/result?p=whenx)
+[![](https://img.badgesize.io/https://unpkg.com/whenx/whenx.min.js?compression=gzip&?maxAge=3600)](https://unpkg.com/whenx@latest)
+
+</center>
+
 # whenx.js
 make weapp methods promisify
 
 ## Usage ##
-As usual we call weapp methods by ``wx[method]`` with an object params like 
+As usual we call weapp methods by ``wx[method]`` with an object params like
 ````javascript
 wx.login({
   ...
@@ -15,7 +25,7 @@ wx.login({
   ,complete(){}
 })
 ````
-Now within ``whenx`` we can just call ``wx[method]`` easily and got a thenable response like 
+Now within ``whenx`` we can just call ``wx[method]`` easily and got a thenable response like
 ````javascript
 const whenx= require('path/to/whenx')
 whenx.login({
@@ -29,7 +39,7 @@ whenx.login({
 })
 ````
 
-And also like wepy/mpvue or any other libs that we dont change ``complete`` method into ``Promise.finally`` also cause the Promise inside weapp doesnot support, while we are also considering make some polyfill to do with it. 
+And also like wepy/mpvue or any other libs that we dont change ``complete`` method into ``Promise.finally`` also cause the Promise inside weapp doesnot support, while we are also considering make some polyfill to do with it.
 
 ### DEMO ###
 ````javascript
